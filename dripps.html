@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>drippr</title>
+	    <link rel="shortcut icon" href="images/drop.png">
+	    <link rel="stylesheet" href="css/bootstrap.min.css">
+	    <link rel="stylesheet" href="css/dripps.css">
+	    <script type="text/javascript" src="/scripts/handlebars.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/scripts/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/scripts/dripps.js"></script>
+		<script type="text/javascript" src="/scripts/bucket.js"></script>
+		<script type="text/javascript" src="/scripts/groups.js"></script>
+		<script type="text/javascript" src="/scripts/elastic.js"></script>
+		<script type="text/javascript" src="/scripts/slider.js"></script>
+		<script type="text/javascript" src="/scripts/introSlider.js"></script>
+		<script type="text/javascript" src="/scripts/sugar.js"></script>
+		<script type="text/javascript" src="/scripts/facebook.js"></script>
+		<script type="text/javascript" src="/scripts/facebook_autocomplete.js"></script>
+		<meta property = "og:image" content = "http://drippr.me/chrome/drop.jpg"/>
+		<meta property = "og:description" content="check out drippr.me to share news and entertainment with friends!"/>
+	</head>
+    <body>    
+	    <script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-52094262-1', 'drippr.me');
+			ga('require', 'linkid', 'linkid.js');
+			ga('send', 'pageview');
+		</script>
+    	<div id="fb-root"></div>
+		<div id="header" class = "container-fluid">
+			<div class = "row header">
+	    		<div id="drippsHeader" class = "col-xs-5 headingPad hide">
+		        	<div class = "col-xs-4 headingPad1">
+	    				<div class = "drippsBub chosenHeadBub">
+	    					<div class = "col-xs-3">
+	        					<img class = "headBubImg" src = "/images/dropWhite.svg">
+	        				</div>
+	        				<div class = "col-xs-9">
+	        					<p id = "selPage">
+	    							find
+	    						</p>
+							</div>
+	    				</div>
+	    			</div>
+	    			<div class = "col-xs-2 headingPad2">
+	    				<div class = "bucketsBub headBub">
+	    					<div class = "notify"></div>
+	    					<img title = "bucket" class = "headBubImg" src = "/images/bucket.svg">
+	    				</div>
+	    			</div>
+	    			<div class = "col-xs-2 headingPad2">
+	    				<div class = "groupsBub headBub">
+	    					<img title = "group" class = "headBubImg" src = "/images/group.svg">
+	    				</div>
+	    			</div>
+	    		</div>
+	    		<div id="bucketsHeader" class = "col-xs-5 headingPad hide">
+					<div class = "col-xs-2 headingPad2">
+	    				<div class = "drippsBub headBub">
+	    					<img title = "find" class = "headBubImg" src = "/images/dropWhite.svg">
+	    				</div>
+	        		</div>
+		        	<div class = "col-xs-4 headingPad1">
+	    				<div class = "bucketsBub chosenHeadBub">
+    					<div class = "notify" style="margin-left:7px"></div>
+	    					<div class = "col-xs-3">
+	        					<img class = "headBubImg" src = "/images/bucket.svg">
+	        				</div>
+	        				<div class = "col-xs-9">
+	        					<p id = "selPage">
+	    							bucket
+	    						</p>
+							</div>
+	    				</div>
+	    			</div>
+	    			<div class = "col-xs-2 headingPad2">
+	    				<div class = "groupsBub headBub">
+	    					<img title = "group" class = "headBubImg" src = "/images/group.svg">
+	    				</div>
+	    			</div>
+	    		</div>
+	    		<div id="groupsHeader" class = "col-xs-5 headingPad hide">
+					<div class = "col-xs-2 headingPad2">
+	    				<div class = "drippsBub headBub">
+	    					<img title = "find" class = "headBubImg" src = "/images/dropWhite.svg">
+	    				</div>
+	        		</div>
+	    			<div class = "col-xs-2 headingPad2">
+	    				<div class = "bucketsBub headBub">
+	    					<div class = "notify"></div>
+	    					<img title = "bucket" class = "headBubImg" src = "/images/bucket.svg">
+	    				</div>
+	    			</div>
+		        	<div class = "col-xs-4 headingPad1">
+	    				<div class = "groupsBub chosenHeadBub">
+	    					<div class = "col-xs-3">
+	        					<img class = "headBubImg" src = "/images/group.svg">
+	        				</div>
+	        				<div class = "col-xs-9">
+	        					<p id = "selPage">
+	    							groups
+	    						</p>
+							</div>
+	    				</div>
+	    			</div>
+	    		</div>
+	    		<div id="drippsPromoHeader" class = "col-xs-5 headingPad">
+		        	<div class = "col-xs-2 headingPad2">
+	    				<div class = "drippsBub headBub">
+	    					<img class = "headBubImg" src = "/images/dropWhite.svg">
+	    				</div>
+	    			</div>
+	    			<div class = "col-xs-2 headingPad2">
+	    				<div class = "bucketsBub headBub">
+	    					<div class = "notify"></div>
+	    					<img class = "headBubImg" src = "/images/bucket.svg">
+	    				</div>
+	    			</div>
+	    			<div class = "col-xs-2 headingPad2">
+	    				<div class = "groupsBub headBub">
+	    					<img class = "headBubImg" src = "/images/group.svg">
+	    				</div>
+	    			</div>
+	    		</div>
+				<div class = "col-xs-2">
+		        	<div id = "dripprdiv">
+		        		<a href = "http://drippr.me"> 
+		        			<img id = "logo" src = "images/logo.png">
+		        		</a>
+		        	</div>
+	        	</div>
+				<div class = "col-xs-5">
+					<div id = "fb">
+						<div class = "row">
+							<div id = "user">
+								Please login to use drippr
+							</div>
+						</div>
+						<div class = "row">
+							<div class = "col-xs-7 noPad">
+								<a href = "http://drippr.me/chrome/ext.html" target="_blank">
+									<div class = "download">
+										<img id = "chromeLogoStyle" src= "/images/dropWhite.svg"> any article
+									</div>
+								</a>
+							</div>
+							<div class = "col-xs-3" id = "leftPad0">
+								<a href = "https://chrome.google.com/webstore/detail/drippr/ecnogdhghoaohnoaepppgehodleikkbf" target="_blank">
+									<div class = "download">
+										<img id = "chromeLogoStyle" src= "/images/chromeLogo.png"> extension
+									</div>
+								</a>
+							</div>
+							<div class = "col-xs-2">
+								<div class="fb-login-button" scope = "email" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="drippsPromo">
+			<div class = "row" id = "promoSpacing">
+				<a href = "javascript:sliders2[0].goToPrev()">
+					<div class = "col-xs-1">
+			        	<div class = "arrowIntro hide">
+			        		<img title = "previous" src = "/images/revArrow.svg">
+						</div>
+					</div>
+				</a>
+				<div class = "col-xs-10">
+					<div id="drippsIntro">	
+						<div class="slider2">
+				            <ul>
+			                	<li class = "listWidth">
+							        <img class = "fitIntroImg hide" src = "/intro/Slide1.png">
+			                	</li> 
+			                	<li class = "listWidth">
+							        <img class = "fitIntroImg hide" src = "/intro/Slide2.png">
+			                	</li> 
+			                	<li class = "listWidth">
+							        <img class = "fitIntroImg hide" src = "/intro/Slide3.png">
+			                	</li> 
+			                	<li class = "listWidth">
+							        <img class = "fitIntroImg hide" src = "/intro/Slide4.png">
+			                	</li> 
+			                	<li class = "listWidth">
+							        <img class = "fitIntroImg hide" src = "/intro/Slide5.png">
+			                	</li> 
+			                	<li class = "listWidth">
+							        <img class = "fitIntroImg hide" src = "/intro/Slide6.png">
+			                	</li> 
+			                	<li class = "listWidth">
+							        <a href = "https://chrome.google.com/webstore/detail/drippr/ecnogdhghoaohnoaepppgehodleikkbf" target="_blank">
+							        	<img class = "fitIntroImg hide" src = "/intro/Slide7.png">
+							        </a>
+			                	</li> 
+			                	<li class = "listWidth">
+							        <img class = "fitIntroImg hide" src = "/intro/Slide8.png">
+			                	</li> 
+				            </ul>
+		            	</div>
+		            </div>
+				</div>
+		        <a href = "javascript:sliders2[0].goToNext()">
+					<div class = "col-xs-1">
+			        	<div class = "arrowIntro hide" id = "floatRightArrow">
+			        		<img title = "next" src = "/images/arrow.svg">
+						</div>
+					</div>
+				</a>
+			</div>
+			<script>
+				var sliders2 = [];
+				$('.slider2').each(function() {
+				sliders2.push(new Slider2(this))
+				});
+			</script>
+		</div>    		
+		<div id="dripps" class = "container-fluid hide">
+			<div class = "row" id = "size1">
+	        	<div class = "menuBar col-xs-3">
+		        	<div class = "mainCatDiv">
+		        		<div  class = "categ row topCat" category="All">
+		        			<div class = "col-xs-9">
+		        				<p id="All" class = "word">all</p>
+		        			</div>
+		        			<div class = "col-xs-3 height100">
+		        				<img class = "catImg topCatImg grey" category="all" src = "/images/all.svg">
+		        				<img class = "catImg hide topCatImg white" category="all" src = "/images/allWhite.svg">
+		        			</div>
+		        		</div>
+		        		<div class = "categ row" category="USA">
+		        			<div class = "col-xs-9">
+		        				<p class = "word">usa</p>
+		        			</div>
+		        			<div class = "col-xs-3 height100">
+		        				<img class = "catImg grey" category="usa" src = "/images/usa.svg">
+		        				<img class = "catImg hide white" category="usa" src = "/images/usaWhite.svg">
+		        			</div>
+		        		</div>
+		        		<div class = "categ row" category="World">
+		        			<div class = "col-xs-9">
+		        				<p id="World" class = "word">world</p>
+		        			</div>
+		        			<div class = "col-xs-3 height100">
+		        				<img class = "catImg grey" category="world" src = "/images/world.svg">
+		        				<img class = "catImg hide white" category="world" src = "/images/worldWhite.svg">
+		        			</div>
+		        		</div>
+		        		<div class = "categ row" category="Politics">
+		        			<div class = "col-xs-9">
+		        				<p class = "word">politics</p>
+		        			</div>
+		        			<div class = "col-xs-3 height100">
+		        				<img class = "catImg grey" category="politics" src = "/images/politics.svg">
+		        				<img class = "catImg hide white" category="politics" src = "/images/politicsWhite.svg">
+		        			</div>
+		        		</div>
+		        		<div class = "categ row" category="Business">
+		        			<div class = "col-xs-9">
+		        				<p class = "word">business</p>
+		        			</div>
+		        			<div class = "col-xs-3 height100">
+		        				<img class = "catImg grey" category="business" src = "/images/business.svg">
+		        				<img class = "catImg hide white" category="business" src = "/images/businessWhite.svg">
+		        			</div>
+		        		</div>
+		        		<div class = "categ row" category="Sports">
+		        			<div class = "col-xs-9">
+		        				<p id="Sports" class = "word">sports</p>
+		        			</div>
+		        			<div class = "col-xs-3 height100">
+		        				<img class = "catImg grey" category="sports" src = "/images/sports.svg">
+		        				<img class = "catImg hide white" category="sports" src = "/images/sportsWhite.svg">
+		        			</div>
+		        		</div>
+		        		<div class = "categ row" category="Entertainment">
+		        			<div class = "col-xs-9">
+		        				<p class = "word">entertainment</p>
+		        			</div>
+		        			<div class = "col-xs-3 height100">
+		        				<img class = "catImg grey" category="entertainment" src = "/images/entertainment.svg">
+		        				<img class = "catImg hide white" category="entertainment" src = "/images/entertainmentWhite.svg">
+		        			</div>
+		        		</div>
+		        		<div class = "categ row" category="Tech">
+		        			<div class = "col-xs-9">
+		        				<p class = "word">tech</p>
+		        			</div>
+		        			<div class = "col-xs-3 height100">
+		        				<img class = "catImg grey" category="tech" src = "/images/tech.svg">
+		        				<img class = "catImg hide white" category="tech" src = "/images/techWhite.svg">
+		        			</div>
+		        		</div>
+		        		<div class = "categ row" category="Weird">
+		        			<div class = "col-xs-9">
+		        				<p class = "word">weird</p>
+		        			</div>
+		        			<div class = "col-xs-3 height100">
+		        				<img class = "catImg grey" category="weird" src = "/images/weird.svg">
+		        				<img class = "catImg hide white" category="weird" src = "/images/weirdWhite.svg">
+		        			</div>
+		        		</div>
+		        		<div class = "categ row" category="Science">
+		        			<div class = "col-xs-9">
+		        				<p class = "word">science</p>
+		        			</div>
+		        			<div class = "col-xs-3 height100">
+		        				<img class = "catImg grey" category="science" src = "/images/science.svg">
+		        				<img class = "catImg hide white" category="science" src = "/images/scienceWhite.svg">
+		        			</div>
+		        		</div>
+		        		<div class = "categ row" category="Health">
+		        			<div class = "col-xs-9">
+		        				<p class = "word">health</p>
+		        			</div>
+		        			<div class = "col-xs-3 height100">
+		        				<img class = "catImg grey" category="health" src = "/images/health.svg">
+		        				<img class = "catImg hide white" category="health" src = "/images/healthWhite.svg">
+		        			</div>
+		        		</div>
+		        		<div class = "categ row" category="Lifestyle">
+		        			<div class = "col-xs-9">
+		        				<p class = "word">lifestyle</p>
+		        			</div>
+		        			<div class = "col-xs-3 height100">
+		        				<img class = "catImg grey" category="lifestyle" src = "/images/lifestyle.svg">
+		        				<img class = "catImg hide white" category="lifestyle" src = "/images/lifestyleWhite.svg">
+		        			</div>
+		        		</div>
+			        </div>
+	        	</div>
+		        <a href = "javascript:sliders[0].goToPrev()">
+	        		<div class = "col-xs-1 arrowDiv">
+			        	<div class = "arrow" id = "prevArrow">
+			        		<img title = "previous" src = "/images/revArrow.svg">
+						</div>
+					</div>
+				</a>
+	        	<div class = "col-xs-7" id = "sliderPad">
+		        	<div id="articles">
+		        	</div>
+	        		<script id="article-template" type="text/x-handlebars-template"> 
+						<div class="slider">
+				            <ul>
+				            	{{#each articles}}
+				                	<li id = {{this.id}} numlikes={{this.numLikes}} numDislikes={{this.numDislikes}}>
+						                <div class = "mainBubble">
+											<div id = "source"> 
+												{{ this.source }} - {{this.date}}
+											</div>
+							                <div class = "headlineDiv">
+							                	<a class = "headlineDripp" href = "{{ this.url }}" target="_blank">
+								                	{{ this.headline }}
+						                		</a>
+						                	</div>
+						                	<div class = "imageDivDripp">
+								                <a href = "{{ this.url }}" target="_blank">
+								                	<img class = "fitimageDripp" src = "{{ this.imgUrl }}" >
+							                	</a>
+						                	</div>
+						                </div>
+				                	</li> 
+				            	{{/each}}
+				            </ul>
+		            	</div>
+						<script>
+							var sliders = [];
+							$('.slider').each(function() {
+							sliders.push(new Slider(this))
+							});
+						</script>
+					</script>
+					<div class = "row" id = "buttonPad">
+						<div class = "col-xs-1">
+						</div>
+						<div class = "row col-xs-10">
+			                <div class = "col-xs-3">
+								<div class = "opDiv">
+									<img title = "save" src = "images/readLater.svg" class="opinionDripp readLater grey2 hide">
+									<img title = "save" src = "images/readLaterBlue.svg" class="opinionDripp readLater blue hide">
+								</div>
+		                	</div>
+		                	<div class = "row col-xs-4">
+			                	<div class = "col-xs-6">
+									<div class = "opDiv">
+										<img title = "like" src = "images/like.svg" class="opinionDripp like grey2 hide">
+										<img title = "unlike" src = "images/likeBlue.svg" class="opinionDripp like blue hide">
+									</div>
+								</div>
+								<div class = "col-xs-6">
+									<p class = "number up">
+									</p>
+		                		</div>
+		                	</div>
+		                	<div class = "row col-xs-4">
+			                	<div class = "col-xs-6">
+									<div class = "opDiv">
+										<img title = "dislike" src = "images/dislike.svg" class="opinionDripp dislike grey2 hide">
+										<img title = "undislike" src = "images/dislikeBlue.svg" class="opinionDripp dislike blue hide">
+									</div>
+								</div>
+								<div class = "col-xs-6">
+									<p class = "number down">
+									</p>
+								</div>
+							</div>
+							<div class = "col-xs-1">
+								<div class = "opDiv">
+									<img title = "send" src = "images/drop.svg" class = "opinionDripp dripp hide" data-toggle="modal" data-target="#myModal">
+								</div>
+							</div>
+						</div>
+						<div class = "col-xs-1">
+						</div>
+	                </div>
+				</div>
+				<a href = "javascript:sliders[0].goToNext()">
+					<div class = "col-xs-1 arrowDiv">
+						<div class = "arrow" id = "nextArrow">
+							<img title = "next" src = "/images/arrow.svg">
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	
+<!--- BUCKETs HTML -->
+	<div id="buckets" class = "container-fluid hide">
+    	<div class = "row">
+    		<div class = "menuBar col-xs-3">
+    			<div class = "row">
+	    			<div class = "col-xs-4" id = "selDripps">
+		    			<div class = "selBucket selectedBucket" bucketIdentifier = "dripps">
+		    				dripps
+		    			</div>
+	    			</div>
+	    			<div class = "col-xs-4" id = "selSent">
+		    			<div class = "selBucket" bucketIdentifier = "sent">
+		    				sent
+		    			</div>
+		    		</div>
+		    		<div class = "col-xs-4" id = "selBucket">
+		    			<div class = "selBucket" bucketIdentifier = "readItLater">
+		    				saved
+		    			</div>
+		    		</div>
+		    	</div>
+        		<div id="items">
+        		</div>
+	        	<script id="items-template" type="text/x-handlebars-template">
+		        	<div class = "mainItemDiv">
+		        		{{#each buckets}}
+		        			{{#if isReadItLater}}
+			        			<div class = "messageItem" saved_id = {{id}} >
+			        				<p saved_id = {{id}}  class = "messageItemHead">{{headline}}</p>
+			        				<div saved_id = {{id}}  class = "row fullMessage">
+			        					<p saved_id = {{id}}  class = "messageItemTime">{{dateAddedString}}</p>
+			        				</div>
+			        			</div>
+		        			{{else}}
+			        			<div class = "messageItem" message_id = {{id}} conversation_id = {{conversationId}}>
+			        				<p message_id = {{id}} conversation_id = {{conversationId}} class = "messageItemHead">{{headline}}</p>
+			        				<div message_id = {{id}} conversation_id = {{conversationId}} class = "row fullMessage">
+			        					<img message_id = {{id}} conversation_id = {{conversationId}} class = "messageItemPic" src = "http://graph.facebook.com/{{fromUserId}}/picture?width=25&height=25">
+			        					<p message_id = {{id}} conversation_id = {{conversationId}} class = "messageItemSender">{{fullName}}</p>
+			        					<p message_id = {{id}} conversation_id = {{conversationId}} class = "messageItemTime">{{timeSentString}}</p>
+			        				</div>
+			        			</div>
+		        			{{/if}}
+		        		{{/each}}
+			        </div>
+		        </script>
+			</div>
+        	<div class = "col-xs-7">
+	        	<div id="selDripp">
+	        	</div>
+	        	<div class = "noDrippsMain hide">
+	        		<a href = "#dripp">
+		        		<div id = "continueFind">
+	    					<div id = "leftDrop" class = "col-xs-2">
+	        					<img src = "/images/dropWhite.svg">
+	        				</div>
+	        				<div class = "col-xs-10">
+	        					<p>
+	    							find more articles
+	    						</p>
+							</div>
+	    				</div>
+	    			</a>
+    			</div>
+	        	<script id="selDripp-template" type="text/x-handlebars-template">
+	        		<div class = "row">
+	        			<div id = "source"> 
+							{{ selItem.source }}{{selItem.dateString}}
+						</div>
+					</div>
+					<div class = "row" id = "headlineBucket">
+	        			<a class = "headlineDripp" href = {{selItem.url}} target="_blank">
+	        				{{selItem.headline}}
+	        			</a>
+	        		</div>
+	        		<div class = "row" id = "sendFromExtDiv">
+	        			<a id = "sendFromExt" href = "https://chrome.google.com/webstore/detail/drippr/ecnogdhghoaohnoaepppgehodleikkbf" target="_blank">
+	        				{{selItem.chrome}}
+	        			</a>
+	        		</div>
+	        		<div id = "imageDivBucket">
+	        			<a href = {{selItem.url}} target="_blank">
+	        				<img id = "fitImageBucket" src = {{selItem.imgUrl}}>
+	        			</a>
+	        		</div>
+        			<div class id = "convoDiv">
+        				<div class = "friendPics">
+	        				{{#each friendNames}}
+	        					<div class = "styleFriends">
+		        					<img class = "circlePics" src = {{picture}}> {{name}}
+		        				</div>
+	        				{{/each}}
+	        			</div>
+	        			<div id = "conversation">
+		        			{{#each messages}}
+		        				<div class = "indMess {{userId}}">
+		        					<img class="commentorPic circlePics	" src = "http://graph.facebook.com/{{userId}}/picture?width=25&height=25">
+		        					<span class="comment">{{fullName}} - </span> <span class="commentTime"> {{timeString}}: </span> {{content}}
+		        				</div>
+	        				{{/each}}
+	        			</div>
+		        	</div>
+	    			<div class = "row padRightLeft">
+	    				<div class = "col-xs-11 messageInputRow" >
+	        				<textarea id = "messageInput" maxlength="1000" placeholder="Enter Message" cols="20"></textarea>
+	        			</div>
+	        			<div class = "col-xs-1 noPad">
+	        				<div id = "messageSend"> Send </div>
+	        			</div>
+	        		</div>
+        		</script>
+	    		<div id="selItem">
+	        	</div>
+		        	<script id="selItem-template" type="text/x-handlebars-template">
+			        	<div>
+			        		<div class = "row">
+			        			<h4 id = "source"> 
+									{{ selItem.source }}{{selItem.dateReadString}}
+								</h4>
+							</div>
+			        		<div class = "row" id = "headlineBucket">
+			        	     	<a class = "headlineDripp" href = "{{ selItem.url }}" target="_blank">
+				        			{{selItem.headline}}
+						  		</a>
+			        		</div>
+			        		<div class = "row" id = "imageDivRead">
+			        			<img id = "fitImageRead" src = {{selItem.imgUrl}}>
+			        		</div>
+		        		</div>
+					</script>
+				</div>
+				<div class = "col-xs-2" id = "opContainer">
+					<div class = "row">
+	 					<div class = "opDiv readItLaterDiv col-xs-6 col-xs-offset-2">
+	 						<img title = "save" src = "images/readLater.svg" class="opinionBucket readLater2 grey2 hide">
+	 						<img title = "unsave" src = "images/readLaterBlue.svg" class="opinionBucket readLater2 blue hide">
+	 					</div>
+					</div>
+	        		<div class = "row">
+						<div class = "number up2 col-xs-2">
+						</div>
+						<div class = "opDiv col-xs-6 ">
+							<img title = "like" src = "images/like.svg" class="opinionBucket like2 grey2 hide">
+							<img title = "unlike" src = "images/likeBlue.svg" class="opinionBucket like2 blue hide">
+						</div>
+	    			</div>
+	    			<div class = "row">
+	    				<div class = "number down2 col-xs-2">
+						</div>
+	 					<div class = "opDiv col-xs-6">
+							<img title = "dislike" src = "images/dislike.svg" class="opinionBucket dislike2 grey2 hide">
+							<img title = "undislike" src = "images/dislikeBlue.svg" class="opinionBucket dislike2 blue hide">
+						</div>
+					</div>
+					<div class="row">
+						<div class = "opDiv col-lg-6 col-lg-offset-2">
+	 						<img title = "send" src = "images/drop.svg" class = "opinionBucket dripp2 hide" data-toggle="modal" data-target="#myModal">
+						</div>
+					</div>
+							
+				</div>
+			</div>
+		</div>
+		<div id="groups" class = "container-fluid hide">
+			<div class = "row">
+				<div class = "row col-xs-6">
+					<div class = "col-xs-1">
+					</div>
+					<div class = "col-xs-5 row createGroupSyle">
+						<div class = "col-xs-2">
+						</div>
+						<div class = "col-xs-10">
+							create groups
+						</div>
+					</div>
+				</div>
+				<div class = "col-xs-6">
+				</div>
+			</div>
+			<div class = "row groupCont">
+				<div class = "col-xs-1">
+				</div>
+				<div class = "col-xs-3" id = "groupInput">
+					<div>
+						select friends for your new group - if your friend hasn't used drippr, we'll give you a chance to invite them and they will be able to see their dripps once they login.<strong> (drippr users appear in blue)</strong>
+						<br><br>
+						<div class = "row">
+							<div class = "col-xs-5" id = "groupNameStyle">
+								group name:
+							</div>
+							<div class = "col-xs-7 noPad">
+								<input id = "groupName" maxlength = "11" type = "text" autocomplete="off">
+							</div>
+						</div>
+						<div class = "row">
+							<div class = "col-xs-5" id = "selFriendsStyle">
+								select friends:
+							</div>
+							<div class = "col-xs-7 noPad">
+								<input id = "fb-input-groups" type = "text" autocomplete="off">
+							</div>
+						</div>
+						<a class="btn" id="groupBtn"><img class="buttonDrip" src="images/dropBlue.svg">Create Group</a>
+					</div>
+				</div>
+				<div class = "col-xs-7">
+					<div id = "chosenCont">
+						<div id = "chosenGroup">
+						</div>
+					</div>
+				</div>
+				<div class = "col-xs-1">
+				</div>
+			</div>
+			<div class = "row">
+				<div class = "col-xs-6">
+					<div class = "row">
+						<div class = "row col-xs-6">
+							<div class = "col-xs-1">
+							</div>
+							<div class = "col-xs-11 createGroupSyle">
+								my groups
+							</div>
+						</div>
+						<div class = "col-xs-6">
+						</div>
+					</div>
+				</div>
+				<div class = "col-xs-6">
+					<div class = "row col-xs-6">
+						<div class = "col-xs-1">
+						</div>
+						<div class = "col-xs-11 createGroupSyle">
+							groups friends made
+						</div>
+					</div>
+					<div class = "col-xs-6">
+					</div>
+				</div>
+			</div>
+			<div id="groups_placeholder">
+			</div>
+			<script id="groups-template" type="text/x-handlebars-template">
+				<div class = "row">
+					<div class = "col-xs-6">	
+						<div class = "row groupHeaderStyle">				
+							<div class = "col-xs-2 headerGroup">name</div>
+							<div class = "col-xs-8 headerGroup">
+								members
+							</div>
+							<div class = "col-xs-2 headerGroup">
+								modify
+							</div>
+						</div>
+						<div id = "my_group_container">
+							{{#each my_groups}}
+								<div class = "row groupRowStyle" group_id="group_{{this.id}}">				
+									<div class = "col-xs-2 nameGroupsStyle">{{this.name}}</div>
+									<div class = "col-xs-8 namesList">
+										{{#each this.list}}
+											<div class="personName {{userId}}">{{this.name}}</div>
+										{{/each}}
+									</div>
+									<div class = "col-xs-2 noPad">
+										<div class = "addMems" group_id={{this.id}} data-toggle="modal" data-target="#myModal2">add members</div>
+										<div class = "deleteGroup" group_id={{this.id}}>
+											delete
+										</div>
+									</div>
+								</div>
+							{{/each}}
+						</div>						
+					</div>
+					<div class = "col-xs-6">
+						<div class = "row groupHeaderStyle">
+							<div class = "col-xs-2 headerGroup">name</div>
+							<div class = "col-xs-2 headerGroup">creator</div>
+							<div class = "col-xs-6 headerGroup">
+								members
+							</div>
+							<div class = "col-xs-2 headerGroup">
+								leave
+							</div>
+						</div>
+						<div id = "other_group_container">
+							{{#each other_groups}}
+								<div class = "row groupRowStyle" group_id="group_{{this.id}}">
+									<div class = "col-xs-2 nameGroupsStyle">{{this.name}}</div>
+									<div class = "col-xs-2 centerCreator">{{this.creatorId}}</div>
+									<div class = "col-xs-6">
+										{{#each this.list}}
+											<div class="personName {{userId}}">
+												{{this.name}}
+											</div>
+										{{/each}}
+									</div>
+									<div class = "col-xs-2 noPad">
+										<div class = "leaveGroup" group_id={{this.id}}>
+											leave group
+										</div>
+									</div>
+								</div>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			</script>
+		</div>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							send dripp
+						</h4>
+					</div>
+					<div class="modal-body">
+						<form class = "showForm" id="fb-form" >
+							<p>
+								choose your facebook friends below. if your friend hasn't signed into drippr, we'll give you a chance to send them a message and they'll display red. groups display green. you may also include a message to send along with your dripps.
+							</p>
+							<div id = "chosenCont">
+								<div id = "chosen">
+								</div>
+							</div>
+							<div class = "row topMargModal">
+								<div class = "col-xs-6 noRightPad">
+									<div class = "row topMargModal">
+										<div class = "col-xs-5 noPadRight">select friends:</div>
+										<div class = "col-xs-7 noPad">
+											<input class = "fb-input inputWidth" type = "text" autocomplete="off" autofocus="autofocus">
+										</div>
+									</div>
+								</div>
+								<div class = "col-xs-6">
+									<div class="ui-widget row topMargModal">
+										<div class = "col-xs-5 noPadRight">select group:</div>
+										<div class = "col-xs-7 noPad">
+											<input class = "inputWidth" id="tags">
+										</div>
+									</div>
+								</div>
+							</div>
+							<textarea id = "messageInput2" maxlength="1000" placeholder="Enter Message" cols="20"></textarea>
+							<div id = "centerSend">
+								<a class="btn send"><img class="buttonDrip" src="images/dropBlue.svg">
+									send
+								</a>
+							</div>
+						</form>
+						<div class = "success hide">
+							congratulations! your dripp has been sent!
+						</div>
+					</div>
+			    </div>
+			</div>		
+		</div>
+		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title groupModalName" id="myModalLabel">
+						</h4>
+					</div>
+					<div class="modal-body">
+						<form class = "showForm" id="fb-form" >
+							<div id = "addChosenCont">
+								<div id = "chosenAdd">
+								</div>
+							</div>
+							select friends: <input class = "fb-input-add" type = "text" autocomplete="off" autofocus="autofocus">
+							<a class="btn add">
+								add friends
+							</a>
+						</form>
+						<div class = "success hide">
+							you have successfully added new members to your group!
+						</div>
+					</div>
+			    </div>
+			</div>
+		</div>
+		<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title groupModalName" id="myModalLabel">
+						</h4>
+					</div>
+					<div class="modal-body">
+						<form class = "showForm" id="fb-form" >
+							<div id = "addChosenContNew">
+								<div id = "chosenAdd">
+								</div>
+							</div>
+							select friends: <input class = "fb-input-add-new" type = "text" autocomplete="off" autofocus="autofocus">
+							<a class="btn addNew">
+								add friends
+							</a>
+						</form>
+						<div class = "success hide">
+							you have successfully added new members to your group!
+						</div>
+					</div>
+			    </div>
+			</div>
+		</div>
+		<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							unable to create group
+						</h4>
+					</div>
+					<div class="modal-body">
+						you already have a group with that name. please choose a different name.
+					</div>
+			    </div>
+			</div>
+		</div>
+		<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							unable to create group
+						</h4>
+					</div>
+					<div class="modal-body">
+						you must enter a group name.
+					</div>
+			    </div>
+			</div>
+		</div>
+		<div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							unable to create group
+						</h4>
+					</div>
+					<div class="modal-body">
+						your group must have at least 2 friends.
+					</div>
+			    </div>
+			</div>
+		</div>
+		<div class="modal fade" id="noMoreDripps" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							no more articles in this category
+						</h4>
+					</div>
+					<div class="modal-body">
+						please select another category to view more articles.
+					</div>
+			    </div>
+			</div>
+		</div>
+	</body>
+</html>

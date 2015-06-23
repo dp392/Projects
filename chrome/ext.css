@@ -1,0 +1,117 @@
+#scrollhide {
+  overflow: hidden;
+}
+
+.floatRight {
+    font-size: 22px;
+    float: right;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.inputBox {
+    margin-top: 13.5px;
+}
+
+.save {
+    font-size: 22px;
+}
+
+.bkg {
+    background: white;
+    border-radius: 10px;
+}
+
+#chosen_ext {
+    background: white;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 5px;
+    height: 70px;
+    overflow-y: scroll; 
+}
+
+#sendBtn {
+    font-size: 22px;
+    float: right;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#saveBtn {
+    font-size: 22px;
+    padding: 10px;
+    float: left;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.chosenHeadBub_ext {
+  margin-left: 10px;
+  width: 285px;
+  border-radius: 50px;
+  background-color: #6D6E70;
+  height: 70px;
+  color: #6D6E70;
+  margin-top: 10px;
+  line-height: 70px;
+  cursor: pointer;
+}
+
+.noLeftPad {
+  padding-left: 0px;
+  padding-right: 15px;
+}
+
+.center {
+  text-align: center;
+}
+
+.form {
+  width: 100%;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+#centerHeadbug {
+  margin-top: 15px;
+}
+
+#logoExt {
+  max-height: 75px;
+  max-width: 125px;
+  margin-top: 15px;
+}
+
+.createdSuccessStyleExt {
+  text-align: center;
+  font-size: 20px;
+  line-height: 102px;
+}
+
+#reqFields {
+  float: right;
+  padding-right: 5px;
+}
+
+#extContScroll {
+  overflow-y: scroll;
+  height: 300px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.opinionButtons {
+  height: 55px;
+  width: 70px;
+}
+
+#messageInput3 {
+  width: 100%;
+  display: inline-block;
+  padding: 0;
+  height: 70px;
+  border-radius: 5px;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "test",
+  "version": "0.0.0",
+  "description": "testing pg",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "awsbox": "*"
+  },
+  "dependencies": {
+    "express": "*",
+    "node-mysql": "~0.3.7",
+    "mysql": "~2.1.1",
+    "moment": "^2.6.0"
+  }
+}
